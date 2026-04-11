@@ -1,0 +1,9 @@
+I, 2026-04-11T21:55:09.122650Z, User requested force refresh
+I, 2026-04-11T21:55:09.124777Z, Beginning plugin refresh
+I, 2026-04-11T21:55:09.702715Z, Processing polling URL: https://api.telescopius.com/v2.0/targets/highlights
+I, 2026-04-11T21:55:10.029649Z, Processed merge_variables  for polling URL: https://api.telescopius.com/v2.0/targets/highlights
+I, 2026-04-11T21:55:10.215205Z, Considering screen refresh for Appearance(model_id: 14, palette_id: gray-4, scale_factor: 1.0, ui_scale: 1.0, css_device: ogv2, css_size: md, orientation: 0)
+I, 2026-04-11T21:55:10.473073Z, Generating screen in Firefox now
+I, 2026-04-11T21:55:11.278268Z, Screen generated in 0.7 seconds, uploading now
+I, 2026-04-11T21:55:13.990599Z, Screen refresh for Appearance(model_id: 14, palette_id: gray-4, scale_factor: 1.0, ui_scale: 1.0, css_device: ogv2, css_size: md, orientation: 0) complete in 3.8 seconds
+I, 2026-04-11T21:55:14.016907Z, Plugin refresh complete

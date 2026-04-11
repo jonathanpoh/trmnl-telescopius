@@ -1,0 +1,48 @@
+Terms and Conditions
+The usage of this website/app (TELESCOPIUS) implies the acceptance of all the Terms and Conditions displayed on this page.
+
+TELESCOPIUS is provided AS-IS, without guarantess of any kind.
+
+Calculated values such as rise, transit and set times, and all celestial object positions are reasonable approximations for your locations - they should be good enough for any kind of amateur astronomer activity.
+
+All TELESCOPIUS programming code (including but not limited to Javascript code) is copyrighted and cannot be used anywhere else without prior authorization by TELESCOPIUS.
+
+When displaying TELESCOPIUS information on other places (like websites, emails, or printed media), attribution is required with a link to https://telescopius.com. Please note user uploaded pictures may have specific licenses that limits or prohibits their reproduction altogether. It's your responsibility to check each picture license before reproducing them.
+
+New user accounts are automatically susbcribed to a newsletter with observing suggestions of popular objects tailored to your locations, which is sent approximately a week before New Moon. You can unsubscribe right away from your personal settings page, or from a link in the first email you get.
+
+All user accounts start with the default image license applied to the images they share on TELESCOPIUS, which is Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International. This means that nobody will be able to use your images commercially without your authorization. If someone uses your pictures for any non-commercial purpose, they will need to give appropriate credit to the author (you). If you don't like this option, you can select other license options on your profile, including All Rights Reserved.
+
+These Terms and Conditions may change, in which case we'll announce this fact in the newsletter. We'll also add an entry in the public Changelog on this website for those users without an account or not registered to the newsletter so they can see it on their next visit. In any case, if you don't agree to the new Terms and Conditions you should stop using TELESCOPIUS immediately.
+
+User accounts found in violation of these Terms and Conditions may be deleted without warning. This includes all content shared from that account.
+
+User Generated Content
+
+User Generated Content means any information shared by Users on TELESCOPIUS, including but not limited to images, comments, equipment information, locations, personal descriptions, private messages between users, and in general any activity that leaves a trace of their activity on TELESCOPIUS servers.
+
+By uploading any content to TELESCOPIUS you authorize TELESCOPIUS to reproduce it, as well as derivative versions (including but not limited to inverted monochrome or annotated picture versions) for didactic, advertising or any other purpose other than selling your digital images directly.
+
+User Generated Content must not be offensive, spam, in violation of any copyrights, or any kind of programming code aimed to damage or steal information in any way. Users have the exclusive responsibility if the content they generate on TELESCOPIUS causes any damage to TELESCOPIUS or any third party.
+
+All User Generated Content must be related to Astronomy activities. Note that not all images depicting the sky are related to Astronomy activities - for example, a music album cover showing the night sky is not appropriate for TELESCOPIUS, even if you own the rights to share it.
+
+All users profile information is public and visible to other users, registered or not, with the exception of your email address. This includes but it's not limited to your uploaded pictures, comments, your profile image, target lists and favorite pictures.
+
+The best effort is done to preserve all User Generated Content, but Users are expected to have a backup of all of their pictures, target lists, or any other content related to their accounts on TELESCOPIUS. In case of loss of data, we'll do the best to recover it but cannot guarantee it. The database is backed up daily, and all astrophotography uploaded to TELESCOPIUS is stored on Google Cloud Storage with File Versioning enabled to be able to recover some pictures in case of server-side accidental loss.
+
+Any User Generated Content can be deleted without warning if it violates these Terms and Conditions, or if TELESCOPIUS staff deems it necessary for any reason.
+
+Application Programming Interface (API)
+
+The Telescopius Application Programming Interface (API) is the set of services provided to access Telescopius programmatically. The API is served at different domains and endpoints and these terms and conditions apply to all of them.
+
+The API is provided as-is, without guarantees of any kind. Limits may be set on individual API keys, including but not limited to amount of requests or data transfer limits per unit of time.
+
+To access the API you need a secret API key. API keys can be granted, denied and cancelled at any time without warning or notice of any kind. Fair use is mandatory or you'll risk losing access to the API.
+
+Currently there is no minimum guaranteed uptime, but historically it's always been well over 99.9% during any given year.
+
+API deprecation and change notices, and changes to these terms and conditions will be sent to the registered email address in your account. It's your responsibility to keep your contact information up to date so you don't miss any important notifications.
+
+Commercial use of the API is not allowed unless you have written consent. If you display data from the API publicly (in a non-commercial web page, native app or any other public location), attribution is required - e.g. by displaying a link back to us like 'Powered by <a href="https://telescopius.com">Telescopius</a>'

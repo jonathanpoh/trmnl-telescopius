@@ -1,0 +1,28 @@
+<div class="layout">
+  <div class="columns">
+    <div class="column">
+      <div class="markdown gap--large">
+        <span class="title">Telescopius Highlights</span>
+        <div class="content-element content clamp--20" data-content-max-height="320">
+          <ul>
+            {% for item in page_results %}
+            <li>
+              <div class="flex flex--row bg--gray-75">
+                <div class="p--5">{{ item.object.main_name }} ({{ item.object.main_id }})</div>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="title_bar">
+  <img class="image" src="https://usetrmnl.com/images/plugins/trmnl--render.svg">
+  <span class="title">{{ trmnl.plugin_settings.instance_name }}</span>
+  <span class="instance">Description</span>
+</div>
