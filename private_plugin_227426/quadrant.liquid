@@ -1,0 +1,28 @@
+<div class="layout layout--col">
+  <div class="columns">
+    <div class="column">
+      {%- for item in page_results limit:3 -%}
+        {%- assign display_name = item.object.main_name | default: item.object.main_id -%}
+        {%- assign catalog_ids = "" -%}
+        {%- assign id_count = 0 -%}
+        {%- for id in item.object.ids -%}{%- if id_count >= 1 -%}{%- break -%}{%- endif -%}{%- assign p = id | split: " " -%}{%- if p[0] == "M" and id != display_name -%}{%- unless catalog_ids contains id -%}{%- assign catalog_ids = id -%}{%- assign id_count = 1 -%}{%- endunless -%}{%- endif -%}{%- endfor -%}
+        {%- for id in item.object.ids -%}{%- if id_count >= 1 -%}{%- break -%}{%- endif -%}{%- assign p = id | split: " " -%}{%- if p[0] == "NGC" and id != display_name -%}{%- unless catalog_ids contains id -%}{%- assign catalog_ids = id -%}{%- assign id_count = 1 -%}{%- endunless -%}{%- endif -%}{%- endfor -%}
+        {%- for id in item.object.ids -%}{%- if id_count >= 1 -%}{%- break -%}{%- endif -%}{%- assign p = id | split: " " -%}{%- if p[0] == "C" and id != display_name -%}{%- unless catalog_ids contains id -%}{%- assign catalog_ids = id -%}{%- assign id_count = 1 -%}{%- endunless -%}{%- endif -%}{%- endfor -%}
+        {%- for id in item.object.ids -%}{%- if id_count >= 1 -%}{%- break -%}{%- endif -%}{%- assign p = id | split: " " -%}{%- if p[0] == "LBN" and id != display_name -%}{%- unless catalog_ids contains id -%}{%- assign catalog_ids = id -%}{%- assign id_count = 1 -%}{%- endunless -%}{%- endif -%}{%- endfor -%}
+        <div class="item">
+          <div class="content">
+            <div class="flex gap--xsmall">
+              <span class="label label--small" data-clamp="1">{{ display_name }}{% if catalog_ids != "" %} · {{ catalog_ids }}{% endif %}</span>
+              {%- if item.object.visual_mag -%}<span class="label label--small label--gray">Mag {{ item.object.visual_mag }}</span>{%- endif -%}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+<div class="title_bar">
+  <img class="image" src="https://usetrmnl.com/images/plugins/trmnl--render.svg">
+  <span class="title">{{ trmnl.plugin_settings.instance_name }}</span>
+  <span class="instance">Powered by Telescopius</span>
+</div>
