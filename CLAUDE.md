@@ -23,7 +23,7 @@ private_plugin_227426/
   half_horizontal.liquid  # Half horizontal: 5 objects, no constellation
   half_vertical.liquid    # Half vertical: 3 objects, 1 catalog ID
   quadrant.liquid         # Quadrant: 3 objects, name + 1 ID + magnitude only
-.env              # TELESCOPIUS_API_KEY
+.env              # TELESCOPIUS_API_KEY (reference only — key is embedded in settings.yml polling_headers)
 PROJECT.md        # Resource links (API docs, framework docs, local dev server)
 ```
 
