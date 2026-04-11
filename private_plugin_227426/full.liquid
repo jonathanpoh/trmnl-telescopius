@@ -1,28 +1,50 @@
-<div class="layout">
+<div class="layout layout--col">
   <div class="columns">
     <div class="column">
-      <div class="markdown gap--large">
-        <span class="title">Telescopius Highlights</span>
-        <div class="content-element content clamp--20" data-content-max-height="320">
-          <ul>
-            {% for item in page_results %}
-            <li>
-              <div class="flex flex--row bg--gray-75">
-                <div class="p--5">{{ item.object.main_name }} ({{ item.object.main_id }})</div>
-              </div>
-            </li>
-            {% endfor %}
-          </ul>
-
-
+      {%- for item in page_results limit:5 -%}
+        {%- assign display_name = item.object.main_name | default: item.object.main_id -%}
+        {%- assign catalog_ids = "" -%}
+        {%- assign id_count = 0 -%}
+        {%- for id in item.object.ids -%}{%- if id_count >= 2 -%}{%- break -%}{%- endif -%}{%- assign p = id | split: " " -%}{%- if p[0] == "M" and id != display_name -%}{%- if catalog_ids == "" -%}{%- assign catalog_ids = id -%}{%- else -%}{%- assign catalog_ids = catalog_ids | append: " · " | append: id -%}{%- endif -%}{%- assign id_count = id_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
+        {%- for id in item.object.ids -%}{%- if id_count >= 2 -%}{%- break -%}{%- endif -%}{%- assign p = id | split: " " -%}{%- if p[0] == "NGC" and id != display_name -%}{%- unless catalog_ids contains id -%}{%- if catalog_ids == "" -%}{%- assign catalog_ids = id -%}{%- else -%}{%- assign catalog_ids = catalog_ids | append: " · " | append: id -%}{%- endif -%}{%- assign id_count = id_count | plus: 1 -%}{%- endunless -%}{%- endif -%}{%- endfor -%}
+        {%- for id in item.object.ids -%}{%- if id_count >= 2 -%}{%- break -%}{%- endif -%}{%- assign p = id | split: " " -%}{%- if p[0] == "C" and id != display_name -%}{%- unless catalog_ids contains id -%}{%- if catalog_ids == "" -%}{%- assign catalog_ids = id -%}{%- else -%}{%- assign catalog_ids = catalog_ids | append: " · " | append: id -%}{%- endif -%}{%- assign id_count = id_count | plus: 1 -%}{%- endunless -%}{%- endif -%}{%- endfor -%}
+        {%- for id in item.object.ids -%}{%- if id_count >= 2 -%}{%- break -%}{%- endif -%}{%- assign p = id | split: " " -%}{%- if p[0] == "LBN" and id != display_name -%}{%- unless catalog_ids contains id -%}{%- if catalog_ids == "" -%}{%- assign catalog_ids = id -%}{%- else -%}{%- assign catalog_ids = catalog_ids | append: " · " | append: id -%}{%- endif -%}{%- assign id_count = id_count | plus: 1 -%}{%- endunless -%}{%- endif -%}{%- endfor -%}
+        {%- assign type_label = "Deep Sky Object" -%}
+        {%- for t in item.object.types -%}
+          {%- if t == "sgx" -%}{%- assign type_label = "Spiral Galaxy" -%}{%- break -%}
+          {%- elsif t == "egx" -%}{%- assign type_label = "Elliptical Galaxy" -%}{%- break -%}
+          {%- elsif t == "lgx" -%}{%- assign type_label = "Lenticular Galaxy" -%}{%- break -%}
+          {%- elsif t == "igx" -%}{%- assign type_label = "Irregular Galaxy" -%}{%- break -%}
+          {%- elsif t == "gxy" -%}{%- assign type_label = "Galaxy" -%}{%- break -%}
+          {%- elsif t == "ggxs" -%}{%- assign type_label = "Galaxy Group" -%}{%- break -%}
+          {%- elsif t == "eneb" -%}{%- assign type_label = "Emission Nebula" -%}{%- break -%}
+          {%- elsif t == "rneb" -%}{%- assign type_label = "Reflection Nebula" -%}{%- break -%}
+          {%- elsif t == "pneb" -%}{%- assign type_label = "Planetary Nebula" -%}{%- break -%}
+          {%- elsif t == "dineb" -%}{%- assign type_label = "Diffuse Nebula" -%}{%- break -%}
+          {%- elsif t == "snr" -%}{%- assign type_label = "Supernova Remnant" -%}{%- break -%}
+          {%- elsif t == "gcl" -%}{%- assign type_label = "Globular Cluster" -%}{%- break -%}
+          {%- elsif t == "ocl" or t == "opcl" -%}{%- assign type_label = "Open Cluster" -%}{%- break -%}
+          {%- elsif t == "comet" -%}{%- assign type_label = "Comet" -%}{%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+        <div class="item item--emphasis-1">
+          <div class="meta"><span class="index">{{ forloop.index }}</span></div>
+          <div class="content">
+            <span class="title title--small" data-clamp="1">{{ display_name }}{% if catalog_ids != "" %} · {{ catalog_ids }}{% endif %}</span>
+            <div class="flex gap--xsmall">
+              <span class="label label--small label--gray">{{ type_label }}</span>
+              <span class="label label--small label--gray">{{ item.object.con_name }}</span>
+              {%- if item.object.visual_mag -%}<span class="label label--small">Mag {{ item.object.visual_mag }}</span>{%- endif -%}
+              {%- if item.tonight_times.rise -%}<span class="label label--small">{{ item.tonight_times.rise }} – {{ item.tonight_times.set }}</span>{%- endif -%}
+            </div>
+          </div>
         </div>
-      </div>
+      {%- endfor -%}
     </div>
   </div>
 </div>
-
 <div class="title_bar">
   <img class="image" src="https://usetrmnl.com/images/plugins/trmnl--render.svg">
   <span class="title">{{ trmnl.plugin_settings.instance_name }}</span>
-  <span class="instance">Description</span>
+  <span class="instance">Powered by Telescopius</span>
 </div>
