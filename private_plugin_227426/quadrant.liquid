@@ -9,11 +9,33 @@
         {%- for id in item.object.ids -%}{%- if id_count >= 1 -%}{%- break -%}{%- endif -%}{%- assign p = id | split: " " -%}{%- if p[0] == "NGC" and id != display_name -%}{%- unless catalog_ids contains id -%}{%- assign catalog_ids = id -%}{%- assign id_count = 1 -%}{%- endunless -%}{%- endif -%}{%- endfor -%}
         {%- for id in item.object.ids -%}{%- if id_count >= 1 -%}{%- break -%}{%- endif -%}{%- assign p = id | split: " " -%}{%- if p[0] == "C" and id != display_name -%}{%- unless catalog_ids contains id -%}{%- assign catalog_ids = id -%}{%- assign id_count = 1 -%}{%- endunless -%}{%- endif -%}{%- endfor -%}
         {%- for id in item.object.ids -%}{%- if id_count >= 1 -%}{%- break -%}{%- endif -%}{%- assign p = id | split: " " -%}{%- if p[0] == "LBN" and id != display_name -%}{%- unless catalog_ids contains id -%}{%- assign catalog_ids = id -%}{%- assign id_count = 1 -%}{%- endunless -%}{%- endif -%}{%- endfor -%}
-        <div class="item">
+        {%- assign type_label = "Deep Sky Object" -%}
+        {%- for t in item.object.types -%}
+          {%- if t == "sgx" -%}{%- assign type_label = "Spiral Galaxy" -%}{%- break -%}
+          {%- elsif t == "egx" -%}{%- assign type_label = "Elliptical Galaxy" -%}{%- break -%}
+          {%- elsif t == "lgx" -%}{%- assign type_label = "Lenticular Galaxy" -%}{%- break -%}
+          {%- elsif t == "igx" -%}{%- assign type_label = "Irregular Galaxy" -%}{%- break -%}
+          {%- elsif t == "gxy" -%}{%- assign type_label = "Galaxy" -%}{%- break -%}
+          {%- elsif t == "ggxs" -%}{%- assign type_label = "Galaxy Group" -%}{%- break -%}
+          {%- elsif t == "eneb" -%}{%- assign type_label = "Emission Nebula" -%}{%- break -%}
+          {%- elsif t == "rneb" -%}{%- assign type_label = "Reflection Nebula" -%}{%- break -%}
+          {%- elsif t == "pneb" -%}{%- assign type_label = "Planetary Nebula" -%}{%- break -%}
+          {%- elsif t == "dineb" -%}{%- assign type_label = "Diffuse Nebula" -%}{%- break -%}
+          {%- elsif t == "snr" -%}{%- assign type_label = "Supernova Remnant" -%}{%- break -%}
+          {%- elsif t == "gcl" -%}{%- assign type_label = "Globular Cluster" -%}{%- break -%}
+          {%- elsif t == "ocl" or t == "opcl" -%}{%- assign type_label = "Open Cluster" -%}{%- break -%}
+          {%- elsif t == "comet" -%}{%- assign type_label = "Comet" -%}{%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+        <div class="item item--emphasis-1">
+          <div class="meta"><span class="index">{{ forloop.index }}</span></div>
           <div class="content">
+            <span class="title title--small" data-clamp="1">{{ display_name }}</span>
             <div class="flex gap--xsmall">
-              <span class="label label--small" data-clamp="1">{{ display_name }}{% if catalog_ids != "" %} · {{ catalog_ids }}{% endif %}</span>
+              {%- if catalog_ids != "" -%}<span class="label label--small label--gray">{{ catalog_ids }}</span>{%- endif -%}
+              <span class="label label--small label--gray">{{ type_label }}</span>
               {%- if item.object.visual_mag -%}<span class="label label--small label--gray">Mag {{ item.object.visual_mag }}</span>{%- endif -%}
+              {%- if item.tonight_times.rise -%}<span class="label label--small label--gray">{{ item.tonight_times.rise }} – {{ item.tonight_times.set }}</span>{%- endif -%}
             </div>
           </div>
         </div>

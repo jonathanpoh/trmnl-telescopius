@@ -1,7 +1,7 @@
 <div class="layout layout--col">
   <div class="columns">
     <div class="column">
-      {%- for item in page_results limit:5 -%}
+      {%- for item in page_results limit:3 -%}
         {%- assign display_name = item.object.main_name | default: item.object.main_id -%}
         {%- assign catalog_ids = "" -%}
         {%- assign id_count = 0 -%}
@@ -30,9 +30,10 @@
         <div class="item item--emphasis-1">
           <div class="meta"><span class="index">{{ forloop.index }}</span></div>
           <div class="content">
-            <span class="title title--small" data-clamp="1">{{ display_name }}{% if catalog_ids != "" %} · {{ catalog_ids }}{% endif %}</span>
+            <span class="title title--small" data-clamp="1">{{ display_name }}</span>
             <div class="flex gap--xsmall">
               <span class="label label--small label--gray">{{ type_label }}</span>
+              <span class="label label--small label--gray">{{ item.object.con_name }}</span>
               {%- if item.object.visual_mag -%}<span class="label label--small">Mag {{ item.object.visual_mag }}</span>{%- endif -%}
               {%- if item.tonight_times.rise -%}<span class="label label--small">{{ item.tonight_times.rise }} – {{ item.tonight_times.set }}</span>{%- endif -%}
             </div>

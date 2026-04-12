@@ -30,9 +30,12 @@
         <div class="item item--emphasis-1">
           <div class="meta"><span class="index">{{ forloop.index }}</span></div>
           <div class="content">
-            <span class="title title--small" data-clamp="1">{{ display_name }}{% if catalog_ids != "" %} · {{ catalog_ids }}{% endif %}</span>
+            <span class="title title--small" data-clamp="1">{{ display_name }}</span>
             <div class="flex gap--xsmall">
+              {%- if catalog_ids != "" -%}<span class="label label--small label--gray">{{ catalog_ids }}</span>{%- endif -%}
               <span class="label label--small label--gray">{{ type_label }}</span>
+            </div>
+            <div class="flex gap--xsmall">
               {%- if item.object.visual_mag -%}<span class="label label--small">Mag {{ item.object.visual_mag }}</span>{%- endif -%}
               {%- if item.tonight_times.rise -%}<span class="label label--small">{{ item.tonight_times.rise }} – {{ item.tonight_times.set }}</span>{%- endif -%}
             </div>
