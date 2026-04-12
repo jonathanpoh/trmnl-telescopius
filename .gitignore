@@ -2,3 +2,5 @@
 *.zip
 trmnl-debug.log
 plugin-e8b92d-screen.png
+.DS_Store
+worker/.wrangler/
