@@ -6,8 +6,8 @@ static_data: ''
 polling_verb: get
 framework_version: 3.0.3
 serverless_language: 
-polling_url: https://api.telescopius.com/v2.0/targets/highlights?types=DEEP_SKY_OBJECT,COMET&lat=38.563&lon=-8.881&timezone=Europe/Lisbon&min_alt=20&time_format=24hr&compute_current=1
-polling_headers: Authorization=Key fe952e87cfb598d849077857656a4574
+polling_url: https://telescopius-proxy.jonathan-poh.workers.dev
+polling_headers: ''
 polling_body: ''
 id: 227426
 name: Telescopius
