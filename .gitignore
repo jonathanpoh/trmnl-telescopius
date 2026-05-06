@@ -1,6 +1,21 @@
+# Secrets
 .env
+
+# Build artifacts
 *.zip
-trmnl-debug.log
-plugin-e8b92d-screen.png
+
+# Logs
+*.log
+
+# Dev scripts (machine-specific sync setup)
+sync-trmnlp.sh
+
+# Claude Code local settings and AI plans
+.claude/
+docs/superpowers/
+
+# macOS
 .DS_Store
+
+# Wrangler cache
 worker/.wrangler/
