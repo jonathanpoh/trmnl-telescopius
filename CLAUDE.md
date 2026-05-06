@@ -27,12 +27,6 @@ private_plugin_227426/
 PROJECT.md        # Resource links (API docs, framework docs, local dev server)
 ```
 
-## Local Development
-
-Edit locally → run `./sync-trmnlp.sh` → preview at http://192.168.2.168:4567
-
-trmnlp server runs on a remote dev box via Docker. Files synced over SSH.
-
 ## Key References
 
 - Telescopius API docs (Swagger): https://api.telescopius.com/
