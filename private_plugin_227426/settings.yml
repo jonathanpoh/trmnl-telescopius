@@ -5,10 +5,37 @@ dark_mode: 'no'
 static_data: ''
 polling_verb: get
 framework_version: 3.0.3
-serverless_language: 
-polling_url: https://telescopius-proxy.jonathan-poh.workers.dev
-polling_headers: ''
+serverless_language:
+polling_url: https://api.telescopius.com/v2.0/targets/highlights?types=DEEP_SKY_OBJECT,COMET&lat={{ lat }}&lon={{ lon }}&timezone={{ timezone }}&min_alt={{ min_alt }}&time_format=24hr&compute_current=1
+polling_headers: Authorization=Key {{ api_key }}
 polling_body: ''
 id: 227426
 name: Telescopius
 refresh_interval: 1440
+custom_fields:
+  - keyname: api_key
+    field_type: password
+    name: Telescopius API Key
+    description: Get one at telescopius.com (Account → API)
+    help_text: Stored securely on TRMNL; never included in the plugin source.
+  - keyname: lat
+    field_type: string
+    name: Latitude
+    description: Your observing location's latitude in decimal degrees
+    placeholder: "51.4779"
+  - keyname: lon
+    field_type: string
+    name: Longitude
+    description: Your observing location's longitude in decimal degrees
+    placeholder: "-0.0015"
+  - keyname: timezone
+    field_type: time_zone
+    name: Timezone
+    description: Used to compute tonight's visibility windows
+  - keyname: min_alt
+    field_type: number
+    name: Minimum altitude (°)
+    description: Skip objects that never rise above this angle
+    min: 0
+    max: 90
+    default: 20
